@@ -9,7 +9,6 @@ import json
 import os
 import shutil
 
-
 main_dir = os.path.dirname(os.path.realpath(__file__))
 
 # initializing config variables
@@ -21,7 +20,7 @@ start_command = config['VARS']['start_command']
 
 bot = telebot.TeleBot(token)
 
-prices_of_goods = {'Камень гашла  90гр': 170, 'Шмыга  14.5гр': 130, 'Сплиф  140гр': 125, 'Варево  300мл': 130}
+prices_of_goods = {'Камень гашла  90гр': 170, 'Шмыга  14.5гр': 130, 'Сплиф  140гр': 125, 'Варево  300мл': 130, 'Стакан промакашки  300мл': 160, "Варево2.0  300мл": 180}
 
 # setting up markUps
 markup_main = types.ReplyKeyboardMarkup(True)
@@ -66,7 +65,7 @@ def send_place(message, item):
 
 
 def message_to_admins(message):
-    active = False
+    active = True
     if active:
         for admin in admin_ids:
             bot.send_message(admin, message, parse_mode='Markdown')
@@ -158,6 +157,7 @@ def goods(message):
     # function which is used to buy goods
 
     if message.text is None:
+        bot.send_message(message.chat.id, [f"{i[0]} - {i[1]}" for i in prices_of_goods.items()])
         bot.send_message(message.chat.id, "Что Вы желаете приобрести?", parse_mode="Markdown")
         bot.register_next_step_handler(message, goods)
     elif message.text in prices_of_goods.keys():
@@ -171,6 +171,7 @@ def goods(message):
 
         bot.register_next_step_handler(message, confirm)
     else:
+        bot.send_message(message.chat.id, [f"{i[0]} - {i[1]}" for i in prices_of_goods.items()])
         bot.send_message(message.chat.id, "Что Вы желаете приобрести?", parse_mode="Markdown")
         bot.register_next_step_handler(message, goods)
 
@@ -246,7 +247,9 @@ def start_message(message):
             registered = True
 
     if registered:
+        message_to_admins(f"{str(message.from_user.id)}, {str(message.from_user.first_name)} {str(message.from_user.last_name)}")
         if message.text.lower() == 'товары':
+            bot.send_message(message.chat.id, '\n'.join([f"{i[0]} - {i[1]}" for i in prices_of_goods.items()]))
             bot.send_message(message.chat.id, "Что вы желаете преобрести?", reply_markup=markup_items)
             bot.register_next_step_handler(message, goods)
         elif message.text.lower() == 'счет':
