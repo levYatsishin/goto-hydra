@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Benne&family=Lato:wght@300&display=swap');
+
+.scroll-left {
+height: 50px; 
+overflow: hidden;
+position: relative;
+}
+
+.scroll-left p {
+position: absolute;
+width: 100%;
+height: 100%;
+margin: 0;
+line-height: 50px;
+text-align: center;
+/* Starting position */
+-moz-transform:translateX(100%);
+-webkit-transform:translateX(100%); 
+transform:translateX(100%);
+/* Apply animation to this element */ 
+-moz-animation: scroll-left 10s linear infinite;
+-webkit-animation: scroll-left 10s linear infinite;
+animation: scroll-left 10s linear infinite;
+}
+
+@-moz-keyframes scroll-left {
+0% { -moz-transform: translateX(100%); }
+100% { -moz-transform: translateX(-100%); }
+}
+
+@-webkit-keyframes scroll-left {
+0% { -webkit-transform: translateX(100%); }
+100% { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes scroll-left {
+0% { 
+-moz-transform: translateX(100%); /* Browser bug fix */
+-webkit-transform: translateX(100%); /* Browser bug fix */
+transform: translateX(100%); 
+}
+    
+100% { 
+-moz-transform: translateX(-100%); /* Browser bug fix */
+-webkit-transform: translateX(-100%); /* Browser bug fix */
+transform: translateX(-100%); 
+}
+}
+
+.stil1 {
+     font-size: 130%;
+     color: white;
+     font-family: "Times New Roman";
+     margin-bottom: 3px;
+
+}
+
+.stil12{
+     margin-bottom: 1px !important;
+}
+
+.stil2 {
+     font-size: 210%;
+     color: white;
+     font-family: Arial;
+     align-items:center;
+}
+
+.stil3 {
+     font-size: 160%;
+     font-family: Calibri;
+     color: white;
+     text-decoration: underline #00ff00;
+
+}
+
+.stil4{
+    font-size: 70% !important;
+}
+
+hr {
+      border: #00ff00;
+      background-color: white;
+      color: white;
+      height: 4px;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 1);
+}
+
+h1 {
+    color: white;
+}
+
+.pram {
+    font-size: 200%;
+    color: white;
+    width: 100%x; /* Ширина слоя */
+    margin: 10% 40% 10% 40%; /* Значение отступов */
+    padding: 10px; /* Поля вокруг текста */
+    border: 1px solid white; /* Параметры границы */
+    background: #000000; /* Цвет фона */
+    align-items: center;
+   }
+
+a:link {
+    color: greenyellow;
+  text-decoration: none;
+}
+
+a:visited {
+    color: greenyellow;
+  text-decoration: none;
+}
+
+
+a:hover {
+    color: seagreen;
+  text-decoration: none;
+}
+
+
+a:active {
+    color: greenyellow;
+  text-decoration: none;
+}
+
+body {background: #000;}
+canvas {display: block;}
+
+.hydra{
+    height: 112px;
+    width: 106px;
+}
+.hydra_holder{
+    align-content: center;
+    align-self: center;
+}
+
+.mom {
+    display: table;
+    align-content: center;
+    align-self: center;
+    margin-left: 30%;
+}
+.child {
+    display: table-cell;
+    width: 107px;
+}
+.childinner {
+    margin-left: 25px;
+}
+.child:first-child .childinner {
+    margin-left: 0;
+}
+
+.bigname{
+    width: 330px;
+}
