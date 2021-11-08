@@ -1,2 +1,2 @@
 # GoToHydra
-Fun mini project which was made for hackaton in summer camp 
+Fun mini project which was made for hackathon in summer camp 
